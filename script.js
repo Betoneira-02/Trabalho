@@ -1,34 +1,26 @@
-// --- Navegação entre telas ---
 function mostrarTela(idTela) {
   document.querySelectorAll('.tela').forEach(function(tela) {
     tela.classList.remove('ativa');
   });
   document.getElementById(idTela).classList.add('ativa');
 }
-
 document.getElementById('btnIrDicas').addEventListener('click', function() {
   mostrarTela('tela-dicas');
 });
-
 document.getElementById('btnMaisInformacoes').addEventListener('click', function() {
   mostrarTela('tela-mais-informacoes');
 });
-
 document.getElementById('btnVoltarDicas').addEventListener('click', function() {
   mostrarTela('tela-inicial');
 });
-
 document.getElementById('btnVoltarTabela').addEventListener('click', function() {
   mostrarTela('tela-inicial');
 });
-
-// --- Lógica da tela pré-existente (Dicas) ---
 document.getElementById('btnEnviar').addEventListener('click', function() {
   const plataforma = document.getElementById('plataforma').value;
   const duvida = document.getElementById('duvida').value.trim();
   const resultadoDiv = document.getElementById('resultado');
   const conteudoResposta = document.getElementById('conteudoResposta');
-
   if (!plataforma) {
     alert('Por favor, escolha uma plataforma.');
     return;
@@ -37,7 +29,6 @@ document.getElementById('btnEnviar').addEventListener('click', function() {
     alert('Por favor, digite sua dúvida ou questão.');
     return;
   }
-
   let respostaDica = '';
   if (plataforma === 'leia') {
     respostaDica = `
@@ -55,20 +46,15 @@ document.getElementById('btnEnviar').addEventListener('click', function() {
       <p><em>Como proceder:</em> Tente traduzir apenas o verbo principal da frase para entender a ação que está sendo pedida, sem precisar traduzir palavra por palavra.</p>
     `;
   }
-
   conteudoResposta.innerHTML = respostaDica;
   resultadoDiv.classList.remove('hidden');
 });
-
-// --- Lógica da tabela (Mais Informações) ---
 const STORAGE_KEY = 'apoioMetasInformacoes';
 const formTabela = document.getElementById('formTabela');
 const corpoTabela = document.getElementById('corpoTabela');
-
 function carregarInformacoes() {
   const salvos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
   corpoTabela.innerHTML = '';
-
   salvos.forEach(function(item, index) {
     const tr = document.createElement('tr');
     tr.innerHTML = `
@@ -80,30 +66,23 @@ function carregarInformacoes() {
     corpoTabela.appendChild(tr);
   });
 }
-
 function escapeHtml(texto) {
   const div = document.createElement('div');
   div.textContent = texto;
   return div.innerHTML;
 }
-
 formTabela.addEventListener('submit', function(event) {
   event.preventDefault();
-
   const plataforma = document.getElementById('infoPlataforma').value.trim();
   const meta = document.getElementById('infoMeta').value.trim();
   const status = document.getElementById('infoStatus').value.trim();
-
   if (!plataforma || !meta || !status) return;
-
   const salvos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
   salvos.push({ plataforma, meta, status });
   localStorage.setItem(STORAGE_KEY, JSON.stringify(salvos));
-
   formTabela.reset();
   carregarInformacoes();
 });
-
 corpoTabela.addEventListener('click', function(event) {
   if (event.target.classList.contains('btn-remover')) {
     const index = Number(event.target.getAttribute('data-index'));
@@ -113,5 +92,4 @@ corpoTabela.addEventListener('click', function(event) {
     carregarInformacoes();
   }
 });
-
 carregarInformacoes();
