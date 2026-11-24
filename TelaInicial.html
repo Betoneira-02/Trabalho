@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apoio no Cumprimento de Metas nas Plataformas</title>
+  <link rel="stylesheet" href="inicial.css" />
+</head>
+<body>
+
+  <!-- TELA INICIAL -->
+  <section id="tela-inicial" class="tela ativa">
+    <button id="btn-saber-mais" class="btn-quadrado" type="button">Saber Mais</button>
+
+    <main class="conteudo-central">
+      <h1 class="titulo-central">Apoio no Cumprimento de Metas nas Plataformas</h1>
+      <button id="btn-pedir-dicas" class="btn-dicas" type="button">Pedir Dicas</button>
+    </main>
+  </section>
+
+  <!-- TELA "SABER MAIS" (COM ESPAÇO PARA TABELA) -->
+  <section id="tela-saber-mais" class="tela oculta">
+    <button id="btn-voltar" class="btn-quadrado" type="button">Voltar</button>
+
+    <main class="conteudo-tabela">
+      <h2>Informações e Metas</h2>
+      <div class="area-tabela">
+        <!-- Adicione sua tabela aqui dentro -->
+        <table id="tabela-informacoes">
+          <thead>
+            <tr>
+              <th>Plataforma</th>
+              <th>Meta</th>
+              <th>Observação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Exemplo</td>
+              <td>100%</td>
+              <td>Adicione seus dados aqui</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </section>
+
+  <!-- SUA TELA PRÉ-EXISTENTE (MANTENHA SUA ESTRUTURA AQUI) -->
+  <div id="tela-pre-existente" class="oculto">
+    <!-- Conteúdo / scripts / estilos da tela pré-existente permanecem intactos -->
+  </div>
+
+  <script src="inicial.js"></script>
+</body>
+</html>
