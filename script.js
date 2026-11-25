@@ -1,4 +1,3 @@
-// --- Navegação entre telas ---
 function mostrarTela(idTela) {
   document.querySelectorAll('.tela').forEach(function(tela) {
     tela.classList.remove('ativa');
@@ -22,7 +21,6 @@ document.getElementById('btnVoltarTabela').addEventListener('click', function() 
   mostrarTela('tela-inicial');
 });
 
-// --- Lógica da tela pré-existente (Dicas) ---
 document.getElementById('btnEnviar').addEventListener('click', function() {
   const plataforma = document.getElementById('plataforma').value;
   const duvida = document.getElementById('duvida').value.trim();
@@ -60,7 +58,6 @@ document.getElementById('btnEnviar').addEventListener('click', function() {
   resultadoDiv.classList.remove('hidden');
 });
 
-// --- Lógica da tabela (Mais Informações) ---
 const STORAGE_KEY = 'apoioMetasInformacoes';
 const formTabela = document.getElementById('formTabela');
 const corpoTabela = document.getElementById('corpoTabela');
